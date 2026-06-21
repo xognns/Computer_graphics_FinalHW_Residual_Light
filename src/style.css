@@ -1,0 +1,180 @@
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #03050a;
+  color: #e8f1ff;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+.hud {
+  position: fixed;
+  top: 6px;
+  left: 6px;
+  display: grid;
+  width: min(18vw, 190px);
+  gap: 1px;
+  padding: 4px 5px;
+  border: 1px solid rgba(124, 214, 255, 0.28);
+  background: rgba(3, 5, 10, 0.52);
+  color: #dfefff;
+  backdrop-filter: blur(6px);
+  font-size: 6px;
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+.hud strong {
+  color: #66f6ff;
+  font-size: 7px;
+}
+
+.hud-prompt {
+  min-height: 7px;
+  color: #8ff7ff;
+}
+
+.hud-status {
+  min-height: 7px;
+  color: #ff8fb8;
+  font-weight: 700;
+}
+
+.progress-track {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(143, 247, 255, 0.15);
+}
+
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  background: #66f6ff;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 80ms linear;
+}
+
+.item-slots {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.item-slot {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(130, 208, 255, 0.26);
+  background:
+    linear-gradient(180deg, rgba(24, 36, 48, 0.48), rgba(5, 8, 14, 0.68));
+  color: rgba(221, 239, 255, 0.56);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.58);
+  opacity: 0.72;
+  transition:
+    border-color 130ms ease,
+    box-shadow 130ms ease,
+    color 130ms ease,
+    opacity 130ms ease,
+    background 130ms ease;
+}
+
+.item-slot-active {
+  border-color: rgba(132, 237, 255, 0.9);
+  background:
+    linear-gradient(180deg, rgba(48, 92, 112, 0.74), rgba(9, 20, 31, 0.82));
+  color: #f0fbff;
+  box-shadow:
+    inset 0 0 18px rgba(117, 229, 255, 0.2),
+    0 0 18px rgba(102, 246, 255, 0.38);
+  opacity: 1;
+}
+
+.item-slot-icon {
+  position: absolute;
+  inset: 13px 6px auto;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.item-slot-key {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.item-slot-count {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.mission-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: min(70vw, 620px);
+  transform: translate(-50%, -50%) scale(0.98);
+  padding: 10px 16px;
+  border: 1px solid rgba(142, 230, 255, 0.42);
+  background: rgba(3, 8, 16, 0.26);
+  color: #e8f7ff;
+  font-size: clamp(18px, 2.45vw, 34px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  text-shadow:
+    0 0 14px rgba(102, 246, 255, 0.72),
+    0 0 34px rgba(70, 160, 255, 0.44);
+  letter-spacing: 0;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(7px);
+}
+
+.mission-prompt-active {
+  animation: missionPromptFade 7.4s ease-in-out forwards;
+}
+
+@keyframes missionPromptFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+
+  16% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  84% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
