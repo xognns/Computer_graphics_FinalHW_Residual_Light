@@ -2,6 +2,8 @@
 
 Three.js 기반 컴퓨터그래픽스 최종 과제 게임입니다. DDGI 기반 indirect lighting을 게임플레이에 연결해 Lumen AI와 사물 가시성에 반영하는 것을 핵심 목표로 잡고 개발했습니다.
 
+게임 구동 링크 : https://xognns.github.io/Computer_graphics_FinalHW_Residual_Light/
+
 ## Run
 
 ```bash
